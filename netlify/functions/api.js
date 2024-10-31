@@ -4,7 +4,6 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const axios = require('axios');
 require('dotenv').config();
 const serverless = require('serverless-http');
-
 const app = express();
 
 // SAP BTP Mobile Services API URL
@@ -25,7 +24,7 @@ app.use((req, res, next) => {
 
 // Use the proxy middleware to forward requests to SAP BTP Mobile Services
 app.use(
-  '/mobile-services-api',  // Add authentication token middleware
+  '/.netlify/functions/api',  // Add authentication token middleware
   createProxyMiddleware({
     target: btpMobileServicesUrl, // Forward requests to SAP BTP Mobile Services
     changeOrigin: true, // Ensure origin is modified to avoid CORS
