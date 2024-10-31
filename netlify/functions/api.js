@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 // Use the proxy middleware to forward requests to SAP BTP Mobile Services
 app.use(
-  '/.netlify/functions/api',  // Add authentication token middleware
+  '/.netlify/functions/proxy',  // Add authentication token middleware
   createProxyMiddleware({
     target: btpMobileServicesUrl, // Forward requests to SAP BTP Mobile Services
     changeOrigin: true, // Ensure origin is modified to avoid CORS
